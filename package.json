@@ -1,0 +1,29 @@
+{
+  "name": "react-pomodoro-clock",
+  "version": "1.0.0",
+  "description": "React pomodoro clock using typescript, context-api and parceljs",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel public/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rashad25evans/react-pomodoro-clock.git"
+  },
+  "author": "Rashad Mahmudov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rashad25evans/react-pomodoro-clock/issues"
+  },
+  "homepage": "https://github.com/rashad25evans/react-pomodoro-clock#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
