@@ -1,24 +1,29 @@
 import * as React from "react";
 import { useState } from "react"
-import { State } from "./Interfaces/StateInterface"
-import SessionLength from "./components/SessionLength"
-import BreakLength from "./components/BreakLength";
+import { StateInterface } from "./Interfaces/StateInterface"
+import Session from "./components/Session"
+import Break from "./components/Break";
 import Display from "./components/Display";
-import MediaButtons from "./components/MediaButtons"
+import MediaButtons from "./components/Media"
+import UserContext from "./UserContext"
 
 
 const App: React.FC = () => {
-  const [state, setState] = useState<State>({
-    break: 5,
-    session: 25
-  });
+  const [value, setValue] = useState<StateInterface>({
+    breakLength: 5,
+    sessionLength: 25
+  }
+  );
+
 
   return (
     <div style={{ marginLeft: "600px" }}>
-      <SessionLength session={state.session} />
-      <BreakLength break={state.break} />
-      <Display />
-      <MediaButtons />
+      <UserContext.Provider value={{ value, setValue }}>
+        <Session />
+        <Break />
+        <Display />
+        <MediaButtons />
+      </UserContext.Provider>
     </div >
   );
 }

@@ -1,4 +1,4 @@
-export interface State {
-  break?: number;
-  session?: number;
+export interface StateInterface {
+  breakLength?: number;
+  sessionLength?: number;
 }
