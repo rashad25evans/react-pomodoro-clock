@@ -11,7 +11,7 @@ const LengthContexProvider = (props) => {
   
   const [state, dispatch] = useReducer(lengthReducer, {
     sessionLength: 25,
-    breakLength: 5
+    breakLength: 5,
   })
   
   // Memoization

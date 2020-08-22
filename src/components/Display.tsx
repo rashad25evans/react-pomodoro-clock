@@ -1,11 +1,16 @@
 import * as React from "react";
-
+import { useContext } from "react"
+import { LengthContex } from "../context/LengthContext";
 
 const Display: React.FC = () => {
+  const { dispatch, state } = useContext(LengthContex)
+  const { breakLength, sessionLength } = state
+  
+
+
   return (
     <>
-      <div id="timer-label">Session</div>
-      <div id="time-left">25:00</div>
+     
     </>
   )
 
