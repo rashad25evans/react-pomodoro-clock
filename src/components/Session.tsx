@@ -5,7 +5,7 @@ import { LengthContex } from "../context/LengthContext";
 
 const SessionLength: React.FC = () => {
   const { dispatch, state } = useContext(LengthContex)
-  const { breakLength, sessionLength } = state
+  const { sessionMinutes } = state
 
 
   const func = () => {
@@ -23,7 +23,7 @@ const SessionLength: React.FC = () => {
   return (
     <>
       <div id="session-label">Session Length</div>
-      <div id="session-length">{sessionLength}</div>
+      <div id="session-length">{sessionMinutes}</div>
       <button id="session-decrement" onClick={func}>session-decrement</button>
       <button id="session-increment" onClick={func2}>session-increment</button>
     </>

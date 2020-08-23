@@ -8,12 +8,13 @@ export const LengthContex = createContext(
 );
 
 const LengthContexProvider = (props) => {
-  
+
   const [state, dispatch] = useReducer(lengthReducer, {
-    sessionLength: 25,
-    breakLength: 5,
+    breakLength: '5',
+    sessionMinutes: '25',
+    sessionSeconds: '00'
   })
-  
+
   // Memoization
   const providerValue = useMemo(() => ({ state, dispatch }), [state, dispatch])
 

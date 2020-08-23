@@ -10,15 +10,15 @@ const BreakLength: React.FC = () => {
 
 
   const func = () => {
-    dispatch({
-      type: 'DECREMENT'
-    })
+    // dispatch({
+    //   type: 'DECREMENT'
+    // })
   }
 
   const func2 = () => {
-    dispatch({
-      type: 'INCREMENT'
-    })
+    // dispatch({
+    //   type: 'INCREMENT'
+    // })
   }
 
 
