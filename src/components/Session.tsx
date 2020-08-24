@@ -3,20 +3,20 @@ import { useContext } from "react"
 import { LengthContex } from "../context/LengthContext";
 
 
-const SessionLength: React.FC = () => {
+const Session: React.FC = () => {
   const { dispatch, state } = useContext(LengthContex)
   const { sessionMinutes } = state
 
 
-  const func = () => {
+  const decrement = () => {
     dispatch({
-      type: 'DECREMENT'
+      type: 'DECREMENT_SESSION'
     })
   }
 
-  const func2 = () => {
+  const increment = () => {
     dispatch({
-      type: 'INCREMENT'
+      type: 'INCREMENT_SESSION'
     })
   }
 
@@ -24,10 +24,10 @@ const SessionLength: React.FC = () => {
     <>
       <div id="session-label">Session Length</div>
       <div id="session-length">{sessionMinutes}</div>
-      <button id="session-decrement" onClick={func}>session-decrement</button>
-      <button id="session-increment" onClick={func2}>session-increment</button>
+      <button id="session-decrement" onClick={decrement}>session-decrement</button>
+      <button id="session-increment" onClick={increment}>session-increment</button>
     </>
   )
 
 }
-export default SessionLength
+export default Session

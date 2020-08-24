@@ -9,16 +9,16 @@ const BreakLength: React.FC = () => {
   const { breakLength, sessionLength } = state
 
 
-  const func = () => {
-    // dispatch({
-    //   type: 'DECREMENT'
-    // })
+  const decrement = () => {
+    dispatch({
+      type: 'DECREMENT_BREAK'
+    })
   }
 
-  const func2 = () => {
-    // dispatch({
-    //   type: 'INCREMENT'
-    // })
+  const increment = () => {
+    dispatch({
+      type: 'INCREMENT_BREAK'
+    })
   }
 
 
@@ -26,8 +26,8 @@ const BreakLength: React.FC = () => {
     <>
       <div id="break-label">Break Length</div>
       <div id="break-length">{breakLength}</div>
-      <button id="break-decrement" onClick={func}>break-decrement</button>
-      <button id="break-increment" onClick={func2}>break-increment</button>
+      <button id="break-decrement" onClick={decrement}>break-decrement</button>
+      <button id="break-increment" onClick={increment}>break-increment</button>
     </>
   )
 

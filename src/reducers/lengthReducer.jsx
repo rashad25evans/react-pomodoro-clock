@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, START } from "./types"
+import { INCREMENT_SESSION, DECREMENT_SESSION, INCREMENT_BREAK, DECREMENT_BREAK, START } from "./types"
 
 
 // const startTimer = () => {
@@ -31,48 +31,65 @@ import { INCREMENT, DECREMENT, START } from "./types"
 export default (state, action) => {
   let interval
   switch (action.type) {
-    case INCREMENT:
+    case INCREMENT_SESSION:
       return {
         breakLength: state.breakLength,
-        sessionMinutes: state.sessionMinutes + 1,
+        sessionMinutes: state.sessionMinutes === 60 ? state.sessionMinutes : state.sessionMinutes + 1,
         sessionSeconds: state.sessionSeconds
       };
-    case DECREMENT:
+    case DECREMENT_SESSION:
       return {
         breakLength: state.breakLength,
-        sessionMinutes: state.sessionMinutes - 1,
+        sessionMinutes: state.sessionMinutes === 1 ? state.sessionMinutes : state.sessionMinutes - 1,
         sessionSeconds: state.sessionSeconds
       };
-    case START:
+    case INCREMENT_BREAK:
       return {
-        breakLength: state.breakLength,
-        sessionSeconds: state.sessionSeconds = 15,
+        breakLength: state.breakLength === 60 ? state.breakLength : state.breakLength + 1,
         sessionMinutes: state.sessionMinutes,
-        timer: setInterval(() => {
-          let seconds
-          seconds = state.sessionSeconds--;
-          if (seconds < 10) {
-            seconds = '0' + seconds
-            if (seconds === '00') {
-              state.sessionMinutes--
-              state.sessionSeconds = 10
-            }
-          }
+        sessionSeconds: state.sessionSeconds
+      };
+    case DECREMENT_BREAK:
+      return {
+        breakLength: state.breakLength === 1 ? state.breakLength : state.breakLength - 1,
+        sessionMinutes: state.sessionMinutes,
+        sessionSeconds: state.sessionSeconds
+      };
 
-          const time = `${state.sessionMinutes}:${seconds}`
-          document.getElementById("time-left").innerHTML = time;
-        }, 1000)
+    // case START:
+    //     return {
+    //       breakLength: state.breakLength,
+    //       sessionMinutes: state.sessionMinutes = 10,
+    //       sessionSeconds: state.sessionSeconds = 15,
+    //       timer: setInterval(() => {
+    //         // let seconds, minutes
+    //         // seconds = state.sessionSeconds--;
+    //         // minutes = state.sessionMinutes
+    //         // if (seconds < 10 || minutes < 10) {
+    //         //   seconds = '0' + seconds
+    //         //   minutes = '0' + minutes
+    //         //   if (seconds === '00') {
+    //         //     state.sessionMinutes--
+    //         //     state.sessionSeconds = 10
+    //         //   }
+    //         if (state.sessionMinutes < 10) {
+    //           state.sessionMinutes = '0' + state.sessionMinutes
+    //         }
 
-        //   if (seconds < 10) {
-        //     seconds = '0' + seconds
-        //     if (seconds === '00') {
-        //       // minutes--;
-        //       seconds = 59
-        //     }
-        // }
-        // const m = `${0}:${seconds}`
-        // seconds--;
-      }
+    //         // if (state.sessionMinutes < 10) {
+
+    //         // if (minutes === '00') {
+    //         //   minutes--;
+    //         //   minutes = 59
+    //         // }
+    //         // }
+    //         const time = `${state.sessionMinutes}:${seconds}`
+    //         document.getElementById("time-left").innerHTML = time;
+    //     }, 1000)
+    // }
+    // return {
+
+    // }
     default:
       return state;
   }

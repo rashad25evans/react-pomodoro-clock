@@ -10,8 +10,8 @@ export const LengthContex = createContext(
 const LengthContexProvider = (props) => {
 
   const [state, dispatch] = useReducer(lengthReducer, {
-    breakLength: '5',
-    sessionMinutes: '25',
+    breakLength: 5,
+    sessionMinutes: 25,
     sessionSeconds: '00'
   })
 
